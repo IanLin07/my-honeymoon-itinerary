@@ -72,3 +72,82 @@ body {
   color: #888;
 }
 
+/* --- 分頁導覽列容器 --- */
+.tabs-nav {
+  display: flex;
+  gap: 12px; /* 按鈕之間的間距 */
+  padding: 15px 0; /* 上下留點空間 */
+  overflow-x: auto; /* 如果天數太多，允許水平滑動 */
+  /* 隱藏滑動條 (選用) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
+}
+.tabs-nav::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
+/* --- 按鈕基本樣式 (模仿圖片中未選取的狀態) --- */
+.tab-btn {
+  /* 清除預設按鈕樣式 */
+  border: none;
+  background: white; /* 背景白色 */
+  cursor: pointer;
+  outline: none;
+
+  /* 形狀與大小 */
+  border-radius: 16px; /* 大圓角 */
+  padding: 12px 8px; /* 內距，讓按鈕看起來高一點 */
+  min-width: 65px; /* 最小寬度，確保不會太擠 */
+
+  /* 關鍵：讓內部元素垂直排列 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* 預設文字顏色 (偏棕灰色調) */
+  color: #9e8c7e;
+  /* 加入一點點淡淡的陰影增加立體感 */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.3s ease; /* 讓切換時有滑順效果 */
+}
+
+/* --- 按鈕內部文字樣式 --- */
+/* 最上面的 "DAY 1" */
+.btn-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+/* 中間的大日期 "3/10" */
+.btn-date {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #7c6856; /* 日期顏色稍微深一點 */
+  line-height: 1.2;
+}
+/* 最下面的星期幾 "二" */
+.btn-weekday {
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+/* --- 🌟 啟動狀態的樣式 (模仿圖片中藍色的 DAY 1) --- */
+.tab-btn.active {
+  background-color: #3ba9e8; /* 天藍色背景 */
+  color: white; /* 所有文字變白色 */
+  box-shadow: 0 4px 12px rgba(59, 169, 232, 0.4); /* 藍色的發光陰影 */
+  transform: translateY(-2px); /* 稍微往上浮起一點點 */
+}
+
+/* 確保選中時，中間的日期文字也變成白色 */
+.tab-btn.active .btn-date {
+  color: white;
+}
+
+/* 懸停效果 (選用，滑鼠移過去時的反應) */
+.tab-btn:hover:not(.active) {
+    background-color: #f8f8f8;
+    transform: translateY(-1px);
+}

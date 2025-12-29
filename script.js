@@ -3,6 +3,8 @@ const honeymoonPlan = [
   {
     day: 1,
     date: "2026/02/27",
+    shortDate: "2/27",
+    weekday: "五",
     events: [
       { time: "10:00", loc: "高鐵台中站", stay: "01時00分" },
       { time: "11:41", loc: "高鐵桃園站", stay: "01時00分" },
@@ -16,6 +18,8 @@ const honeymoonPlan = [
   {
     day: 2,
     date: "2026/02/28",
+    shortDate: "2/28",
+    weekday: "六",
     events: [
       { time: "08:00", loc: "大阪難波GRIDS PREMIUM酒店", stay: "00時30分" },
       { time: "08:58", loc: "大阪城 天守閣", stay: "01時00分" },
@@ -35,6 +39,8 @@ const honeymoonPlan = [
   {
     day: 3,
     date: "2026/03/01",
+    shortDate: "3/01",
+    weekday: "日",
     events: [
       { time: "09:00", loc: "大阪難波GRIDS PREMIUM酒店", stay: "00時30分" },
       { time: "10:00", loc: "neel中崎町", stay: "01時00分" },
@@ -51,6 +57,8 @@ const honeymoonPlan = [
   {
     day: 4,
     date: "2026/03/02",
+    shortDate: "3/02",
+    weekday: "一",
     events: [
       { time: "08:00", loc: "大阪難波GRIDS PREMIUM酒店", stay: "-02時00分" },
       { time: "06:25", loc: "日本環球影城", stay: "15時00分" }
@@ -59,6 +67,8 @@ const honeymoonPlan = [
   {
     day: 5,
     date: "2026/03/03",
+    shortDate: "3/03",
+    weekday: "二",
     events: [
       { time: "08:00", loc: "大阪難波GRIDS PREMIUM酒店", stay: "01時00分" },
       { time: "09:07", loc: "難波八阪神社", stay: "01時00分" },
@@ -74,6 +84,8 @@ const honeymoonPlan = [
   {
     day: 6,
     date: "2026/03/04",
+    shortDate: "3/04",
+    weekday: "三",
     events: [
       { time: "07:00", loc: "大阪難波站前相鐵FRESA INN飯店", stay: "00時30分" },
       { time: "07:50", loc: "日本橋2號出口", stay: "00時10分" },
@@ -89,6 +101,8 @@ const honeymoonPlan = [
   {
     day: 7,
     date: "2026/03/05",
+    shortDate: "3/05",
+    weekday: "四",
     events: [
       { time: "08:00", loc: "THE BLOSSOM 京都", stay: "00時20分" },
       { time: "09:01", loc: "清水寺", stay: "01時00分" },
@@ -108,6 +122,8 @@ const honeymoonPlan = [
   {
     day: 8,
     date: "2026/03/06",
+    shortDate: "3/06",
+    weekday: "五",
     events: [
       { time: "08:00", loc: "THE BLOSSOM 京都", stay: "00時30分" },
       { time: "09:04", loc: "JR嵯峨嵐山站", stay: "00時10分" },
@@ -126,6 +142,8 @@ const honeymoonPlan = [
   {
     day: 9,
     date: "2026/03/07",
+    shortDate: "3/07",
+    weekday: "六",
     events: [
       { time: "08:00", loc: "THE BLOSSOM 京都", stay: "01時00分" },
       { time: "09:17", loc: "寺町京極商店街", stay: "01時30分" },
@@ -152,7 +170,13 @@ function renderApp() {
     const isActive = index === 0 ? 'active' : '';
 
     // 產生按鈕
-    tabsNav.innerHTML += `<button class="tab-btn ${isActive}" data-day="${dayData.day}">Day ${dayData.day}</button>`;
+tabsNav.innerHTML += `
+  <button class="tab-btn ${isActive}" data-day="${dayData.day}">
+    <span class="btn-label">DAY ${dayData.day}</span>
+    <span class="btn-date">${dayData.shortDate}</span>
+    <span class="btn-weekday">${dayData.weekday}</span>
+  </button>
+`;
 
     // 產生行程內容
     let eventsHTML = dayData.events.map(event => `
@@ -201,6 +225,4 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// 執行渲染
-renderApp();
 
