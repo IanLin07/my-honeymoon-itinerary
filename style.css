@@ -1,0 +1,74 @@
+/* 1. 預設隱藏所有的行程內容區塊 */
+.tab-content {
+  display: none; 
+}
+
+/* 2. 只有當它同時擁有 tab-content 和 active 這兩個 class 時，才顯示出來 */
+.tab-content.active {
+  display: block;
+}
+
+
+/* 1. 設定整體背景與字體 */
+
+body {
+  background-color: #f5f7fa; /* 淺灰色背景，看久了眼睛不累 */
+  font-family: "Helvetica", "Arial", sans-serif;
+  padding: 20px;
+  color: #333;
+}
+
+/* 2. 行程容器：讓內容置中 */
+.itinerary {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 3. 每天的區段標題 */
+.day-title {
+  color: #ff4d6d; /* 浪漫的粉紅色 */
+  border-bottom: 2px solid #ff4d6d;
+  padding-bottom: 10px;
+  margin-top: 30px;
+}
+
+}
+
+
+
+/* 當這個 class 被加上去時，內容就會顯示 */
+.is-open {
+  display: block !important;
+}
+
+
+/* 4. 行程卡片：最核心的視覺部分 */
+.event-item {
+  background: white;
+  border-radius: 12px; /* 圓角看起來更現代、親切 */
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 淡淡的陰影增加立體感 */
+  display: flex; /* 讓內容橫向排列 */
+  align-items: center;
+}
+
+/* 5. 時間樣式：稍微加粗 */
+.time {
+  font-weight: bold;
+  color: #555;
+  width: 60px; /* 固定寬度讓時間對齊 */
+}
+
+/* 6. 地點樣式 */
+.location {
+  flex-grow: 1; /* 讓地點自動填滿剩餘空間 */
+  padding-left: 10px;
+}
+
+/* 7. 停留時間樣式：用小字表示 */
+.duration {
+  font-size: 0.8em;
+  color: #888;
+}
+
